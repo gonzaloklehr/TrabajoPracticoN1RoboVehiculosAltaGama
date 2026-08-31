@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
+  <title id="title">Escudo ISSP</title>
+  <desc id="desc">Escudo del Instituto Superior de Seguridad Pública</desc>
+  <g fill="none" stroke="#ffffff" stroke-width="5">
+    <circle cx="90" cy="92" r="72"/>
+    <circle cx="90" cy="92" r="61" stroke-width="2"/>
+    <path d="M53 118c20-15 54-15 74 0M57 52c18 12 48 12 66 0M90 40v105M61 92h58" stroke-width="3"/>
+  </g>
+  <path d="M65 77h50L90 111z" fill="#ffffff"/>
+  <path d="M90 145l18 28-18 38-18-38z" fill="#0a9dd8"/>
+  <path d="M90 145v66" stroke="#ffffff" stroke-width="4"/>
+  <path d="M30 66L12 48M150 66l18-18M31 119l-19 15M149 119l19 15" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,263 @@
+:root {
+  --ink: #172231;
+  --muted: #5d6a79;
+  --navy: #101c2c;
+  --blue: #1769aa;
+  --surface: #ffffff;
+  --background: #eef2f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.site-header {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(56, 134, 191, 0.3), transparent 34%),
+    linear-gradient(135deg, #0b1727 0%, #162b42 100%);
+  border-bottom: 4px solid #159bd3;
+  padding: clamp(1.25rem, 4vw, 2.75rem) 0 clamp(1.75rem, 5vw, 3.5rem);
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.header-branding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo-horizontal {
+  display: block;
+  width: min(100%, 390px);
+  height: auto;
+  border-radius: 0.45rem;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.logo-escudo {
+  display: block;
+  width: clamp(4.25rem, 10vw, 6rem);
+  height: clamp(5rem, 12vw, 7rem);
+  object-fit: contain;
+}
+
+.header-content {
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow,
+.students-label {
+  color: #74d4f5;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+}
+
+.header-content h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 4vw, 3.25rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.header-subtitle {
+  margin: 1rem 0 0;
+  color: #c5d4e3;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.students {
+  max-width: 850px;
+  margin: 1.5rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(197, 212, 227, 0.35);
+}
+
+.students-label {
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
+.students p {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(0.82rem, 1.7vw, 0.98rem);
+  line-height: 1.7;
+}
+
+.page-content {
+  padding-top: clamp(1.25rem, 4vw, 2.5rem);
+  padding-bottom: 2rem;
+}
+
+.card {
+  overflow: hidden;
+  border: 0;
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: 0 10px 28px rgba(22, 42, 66, 0.09);
+}
+
+.card-header {
+  padding: 1rem 1.25rem;
+  border: 0;
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.card-body {
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.filter-control {
+  width: min(100%, 320px);
+  min-height: 44px;
+}
+
+#map {
+  height: clamp(320px, 48vw, 500px);
+  min-height: 280px;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #dbe5ed;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.chart-item {
+  display: flex;
+  min-width: 0;
+  grid-column: span 4;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid #e0e7ee;
+  border-radius: 0.75rem;
+  background: #fbfcfd;
+}
+
+.chart-title {
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.chart-frame {
+  position: relative;
+  width: 100%;
+  height: clamp(220px, 23vw, 280px);
+}
+
+.chart-frame canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.section-column h4 {
+  margin: 0 0 0.65rem;
+  color: var(--blue);
+  font-size: 1.15rem;
+}
+
+.section-column p,
+.section-column ul,
+.card-body > p,
+.card-body > ul {
+  margin-bottom: 0;
+}
+
+.site-footer {
+  padding: 1.25rem;
+  background: var(--navy);
+  color: #c5d4e3;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 991.98px) {
+  .chart-item {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .header-branding {
+    justify-content: center;
+  }
+
+  .logo-horizontal {
+    width: min(100%, 340px);
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .header-branding {
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .logo-horizontal {
+    width: min(100%, 285px);
+  }
+
+  .students p {
+    line-height: 1.55;
+  }
+
+  .chart-item {
+    grid-column: span 12;
+  }
+
+  .chart-frame {
+    height: 230px;
+  }
+}

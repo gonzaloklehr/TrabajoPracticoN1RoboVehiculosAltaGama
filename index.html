@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Planificación Estratégica - Robo de Vehículos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header text-white">
+  <div class="container header-inner">
+    <div class="header-branding" aria-label="Instituto Superior de Seguridad Pública">
+      <img class="logo-horizontal" src="assets/logo-issp.svg" alt="ISSP - Instituto Superior de Seguridad Pública">
+    </div>
+
+    <div class="header-content">
+      <p class="eyebrow">Trabajo práctico N° 1</p>
+      <h1>Planificación Estratégica Operativa</h1>
+      <p class="header-subtitle">Robo de Vehículos de Alta Gama - Diagnóstico y Estrategia</p>
+      <div class="students" aria-label="Alumnos">
+        <span class="students-label">Alumnos</span>
+        <p>ESTIGARRIBIA, Diego · HEREDIA, Guillermo · CHAMORRO, Camila · RUSS, Gabriel · KLEHR, Gonzalo</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container page-content">
+
+  <!-- Sección Mapa -->
+  <div class="card mb-4 animate__animated animate__fadeInUp">
+    <div class="card-header">Mapa del Delito</div>
+    <div class="card-body">
+      <label class="filter-label" for="filtroBarrio">Filtrar por barrio:</label>
+      <select id="filtroBarrio" class="form-select filter-control mb-3">
+        <option value="todos">Todos</option>
+        <option value="Palermo">Palermo</option>
+        <option value="Recoleta">Recoleta</option>
+        <option value="Belgrano">Belgrano</option>
+      </select>
+      <div id="map" aria-label="Mapa interactivo de hechos registrados"></div>
+    </div>
+  </div>
+
+  <!-- Sección Gráficos -->
+  <div class="card mb-4 animate__animated animate__fadeInUp">
+    <div class="card-header">Patrones Identificados</div>
+    <div class="card-body charts-grid">
+      <div class="chart-item">
+        <h3 class="chart-title">Hechos por barrio</h3>
+        <div class="chart-frame"><canvas id="graficoBarrios"></canvas></div>
+      </div>
+      <div class="chart-item">
+        <h3 class="chart-title">Distribución horaria</h3>
+        <div class="chart-frame"><canvas id="graficoHorarios"></canvas></div>
+      </div>
+      <div class="chart-item">
+        <h3 class="chart-title">Marcas involucradas</h3>
+        <div class="chart-frame"><canvas id="graficoMarcas"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección Hallazgos -->
+  <div class="card mb-4 animate__animated animate__fadeInUp">
+    <div class="card-header">Hallazgos Principales</div>
+    <div class="card-body">
+      <ul>
+        <li>🕒 Horarios críticos: 22:00–02:00</li>
+        <li>📍 Corredores: Av. Libertador y Figueroa Alcorta</li>
+        <li>🚙 Vehículos: SUVs premium 2022–2024</li>
+        <li>⚠️ Modalidades: 75% sin violencia, 25% con intimidación</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Sección Hipótesis y Planificación -->
+  <div class="card mb-4 animate__animated animate__fadeInUp">
+    <div class="card-header">Hipótesis y Planificación</div>
+    <div class="card-body two-column">
+      <div class="section-column">
+        <h4>Hipótesis</h4>
+        <p>Bandas organizadas con logística de traslado al conurbano.</p>
+      </div>
+      <div class="section-column">
+        <h4>Plan Operativo</h4>
+        <ul>
+          <li>Patrullajes focalizados en corredores críticos.</li>
+          <li>Coordinación interjurisdiccional para recuperación temprana.</li>
+          <li>Control de autopartes ilegales.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección Conclusiones -->
+  <div class="card mb-4 animate__animated animate__fadeInUp">
+    <div class="card-header">Conclusiones</div>
+    <div class="card-body">
+      <p>Los patrones identificados permiten orientar acciones estratégicas de prevención e investigación.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  Tecnicatura Superior en Investigación Criminal - 2do. Cuatrimestre
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
