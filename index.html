@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <!-- Estilos propios -->
@@ -17,10 +15,6 @@
 
 <header class="site-header text-white">
   <div class="container header-inner">
-    <div class="header-branding" aria-label="Instituto Superior de Seguridad Pública">
-      <img class="logo-horizontal" src="assets/logo-issp.svg" alt="ISSP - Instituto Superior de Seguridad Pública">
-    </div>
-
     <div class="header-content">
       <p class="eyebrow">Trabajo práctico N° 1</p>
       <h1>Planificación Estratégica Operativa</h1>
@@ -28,6 +22,10 @@
       <div class="students" aria-label="Alumnos">
         <span class="students-label">Alumnos</span>
         <p>ESTIGARRIBIA, Diego · HEREDIA, Guillermo · CHAMORRO, Camila · RUSS, Gabriel · KLEHR, Gonzalo</p>
+        <div class="teacher">
+          <span class="teacher-label">Profesor</span>
+          <p>Licenciado ESPINDOLA José Maria</p>
+        </div>
       </div>
     </div>
   </div>
@@ -39,32 +37,43 @@
   <div class="card mb-4 animate__animated animate__fadeInUp">
     <div class="card-header">Mapa del Delito</div>
     <div class="card-body">
-      <label class="filter-label" for="filtroBarrio">Filtrar por barrio:</label>
-      <select id="filtroBarrio" class="form-select filter-control mb-3">
-        <option value="todos">Todos</option>
-        <option value="Palermo">Palermo</option>
-        <option value="Recoleta">Recoleta</option>
-        <option value="Belgrano">Belgrano</option>
-      </select>
-      <div id="map" aria-label="Mapa interactivo de hechos registrados"></div>
+      <iframe
+        id="map"
+        src="https://www.google.com/maps/d/embed?mid=1Yn6qFkbl87z0Xra5rCcQWOLg6Uv0vNk&amp;hl=es"
+        title="Mapa del delito en Google My Maps"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 
   <!-- Sección Gráficos -->
   <div class="card mb-4 animate__animated animate__fadeInUp">
     <div class="card-header">Patrones Identificados</div>
-    <div class="card-body charts-grid">
-      <div class="chart-item">
-        <h3 class="chart-title">Hechos por barrio</h3>
-        <div class="chart-frame"><canvas id="graficoBarrios"></canvas></div>
+    <div class="card-body">
+      <div class="pattern-controls">
+        <label class="filter-label" for="filtroBarrio">Filtrar gráficos por barrio:</label>
+        <select id="filtroBarrio" class="form-select filter-control">
+          <option value="todos">Todos</option>
+          <option value="Palermo">Palermo</option>
+          <option value="Recoleta">Recoleta</option>
+          <option value="Belgrano">Belgrano</option>
+        </select>
       </div>
-      <div class="chart-item">
-        <h3 class="chart-title">Distribución horaria</h3>
-        <div class="chart-frame"><canvas id="graficoHorarios"></canvas></div>
-      </div>
-      <div class="chart-item">
-        <h3 class="chart-title">Marcas involucradas</h3>
-        <div class="chart-frame"><canvas id="graficoMarcas"></canvas></div>
+
+      <div class="charts-grid">
+        <div class="chart-item">
+          <h3 class="chart-title">Hechos por barrio</h3>
+          <div class="chart-frame"><canvas id="graficoBarrios"></canvas></div>
+        </div>
+        <div class="chart-item">
+          <h3 class="chart-title">Distribución horaria</h3>
+          <div class="chart-frame"><canvas id="graficoHorarios"></canvas></div>
+        </div>
+        <div class="chart-item">
+          <h3 class="chart-title">Marcas involucradas</h3>
+          <div class="chart-frame"><canvas id="graficoMarcas"></canvas></div>
+        </div>
       </div>
     </div>
   </div>
@@ -82,22 +91,73 @@
     </div>
   </div>
 
-  <!-- Sección Hipótesis y Planificación -->
+  <!-- Sección Modalidad -->
   <div class="card mb-4 animate__animated animate__fadeInUp">
-    <div class="card-header">Hipótesis y Planificación</div>
+    <div class="card-header">Modalidad</div>
+    <div class="card-body">
+      <div class="modality-stats">
+        <div class="modality-stat">
+          <strong>16</strong>
+          <span>Sin violencia visible</span>
+        </div>
+        <div class="modality-stat">
+          <strong>4</strong>
+          <span>Con intimidación</span>
+        </div>
+        <div class="modality-stat">
+          <strong>10</strong>
+          <span>Recuperados</span>
+        </div>
+      </div>
+
+      <ul class="modality-notes">
+        <li><strong>Sin violencia visible:</strong> predominan los vehículos estacionados en vía pública.</li>
+        <li><strong>Con intimidación:</strong> interceptación al conductor; en varios casos participan al menos dos personas.</li>
+        <li><strong>No debe asumirse</strong> que ambas modalidades pertenecen al mismo grupo sin evidencia.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Sección Patrones -->
+  <div class="card mb-4 animate__animated animate__fadeInUp">
+    <div class="card-header">Patrones</div>
+    <div class="card-body">
+      <ul class="patterns-list">
+        <li><strong>Casos 14 y 20:</strong> Audi Q5 + Palermo + presencia/posible vehículo de apoyo; el caso 20 agrega intimidación.</li>
+        <li><strong>Casos 11 y 17:</strong> Mercedes-Benz GLC + Palermo + horario cercano a la madrugada; ambos con referencia a vehículo oscuro/similar en cámaras.</li>
+        <li><strong>Casos 2 y 15:</strong> Volkswagen Taos Highline + sustracción sin violencia visible + franja nocturna.</li>
+        <li><strong>Casos 5 y 12:</strong> Jeep Compass Limited + sustracción sin violencia visible + franja nocturna.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Sección Hipótesis -->
+  <div class="card mb-4 animate__animated animate__fadeInUp">
+    <div class="card-header">Hipótesis</div>
     <div class="card-body two-column">
       <div class="section-column">
-        <h4>Hipótesis</h4>
-        <p>Bandas organizadas con logística de traslado al conurbano.</p>
+        <h4>Hipótesis Principal</h4>
+        <p>De las constancias se desprende la posible existencia de una maniobra coordinada, al menos de forma parcial, caracterizada por la selección de rodados de alta gama, su ejecución en franja horaria nocturna y la utilización de modalidades delictivas diferenciadas conforme al entorno y las condiciones de oportunidad.</p>
       </div>
       <div class="section-column">
-        <h4>Plan Operativo</h4>
-        <ul>
-          <li>Patrullajes focalizados en corredores críticos.</li>
-          <li>Coordinación interjurisdiccional para recuperación temprana.</li>
-          <li>Control de autopartes ilegales.</li>
-        </ul>
+        <h4>Hipótesis Alternativa</h4>
+        <p>Los hechos podrían responder a la intervención de autores o grupos diferenciados que aprovechen condiciones y objetivos de similares características, sin que se advierta la existencia de una organización única.</p>
       </div>
+    </div>
+  </div>
+
+  <!-- Sección Planificación -->
+  <div class="card mb-4 animate__animated animate__fadeInUp">
+    <div class="card-header">Planificación</div>
+    <div class="card-body">
+      <ol class="planning-list">
+        <li><strong>Diagnóstico:</strong> Consolidar datos + mapa + cronología.</li>
+        <li><strong>Priorización:</strong> Casos con mayores coincidencias.</li>
+        <li><strong>Información:</strong> Cámaras + recuperación - cruces.</li>
+        <li><strong>Análisis:</strong> Espacial + temporal + vínculos.</li>
+        <li><strong>Hipótesis:</strong> Confirmar / descartar.</li>
+        <li><strong>Evaluación:</strong> Medir resultados y ajustar.</li>
+      </ol>
     </div>
   </div>
 
@@ -116,7 +176,6 @@
 </footer>
 
 <!-- Scripts -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="js/app.js"></script>
 

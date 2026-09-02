@@ -34,28 +34,6 @@ body {
   gap: clamp(1.5rem, 4vw, 2.75rem);
 }
 
-.header-branding {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-}
-
-.logo-horizontal {
-  display: block;
-  width: min(100%, 390px);
-  height: auto;
-  border-radius: 0.45rem;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
-}
-
-.logo-escudo {
-  display: block;
-  width: clamp(4.25rem, 10vw, 6rem);
-  height: clamp(5rem, 12vw, 7rem);
-  object-fit: contain;
-}
-
 .header-content {
   max-width: 940px;
   margin: 0 auto;
@@ -63,7 +41,8 @@ body {
 }
 
 .eyebrow,
-.students-label {
+.students-label,
+.teacher-label {
   color: #74d4f5;
   font-size: 0.75rem;
   font-weight: 700;
@@ -108,6 +87,17 @@ body {
   line-height: 1.7;
 }
 
+.teacher {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(197, 212, 227, 0.2);
+}
+
+.teacher-label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
 .page-content {
   padding-top: clamp(1.25rem, 4vw, 2.5rem);
   padding-bottom: 2rem;
@@ -148,10 +138,17 @@ body {
   min-height: 44px;
 }
 
+.pattern-controls {
+  margin-bottom: 1.25rem;
+}
+
 #map {
+  display: block;
+  width: 100%;
   height: clamp(320px, 48vw, 500px);
   min-height: 280px;
   overflow: hidden;
+  border: 0;
   border-radius: 0.75rem;
   background: #dbe5ed;
 }
@@ -210,6 +207,68 @@ body {
   margin-bottom: 0;
 }
 
+.patterns-list,
+.planning-list {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.patterns-list li,
+.planning-list li {
+  padding-left: 0.15rem;
+  color: #252a2f;
+  line-height: 1.5;
+}
+
+.modality-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.modality-stat {
+  display: flex;
+  min-height: 114px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid #d0dfe8;
+  border-radius: 1rem;
+  background: #eef5f9;
+  box-shadow: 0 3px 4px rgba(23, 34, 49, 0.2);
+  text-align: center;
+}
+
+.modality-stat strong {
+  color: #203b56;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.modality-stat span {
+  margin-top: 0.5rem;
+  color: var(--ink);
+  font-size: 0.78rem;
+  text-transform: lowercase;
+}
+
+.modality-notes {
+  display: grid;
+  gap: 0.7rem;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.modality-notes li {
+  padding-left: 0.15rem;
+  color: #252a2f;
+  line-height: 1.5;
+}
+
 .site-footer {
   padding: 1.25rem;
   background: var(--navy);
@@ -225,30 +284,18 @@ body {
 }
 
 @media (max-width: 767.98px) {
-  .header-branding {
-    justify-content: center;
-  }
-
-  .logo-horizontal {
-    width: min(100%, 340px);
-  }
-
   .two-column {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
+  .modality-stats {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
 }
 
 @media (max-width: 575.98px) {
-  .header-branding {
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .logo-horizontal {
-    width: min(100%, 285px);
-  }
-
   .students p {
     line-height: 1.55;
   }

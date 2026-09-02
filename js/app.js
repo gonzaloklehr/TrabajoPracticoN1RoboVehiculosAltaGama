@@ -322,37 +322,8 @@ const registros = [
   }
 ];
 
-// Inicializar mapa
-var map = L.map('map').setView([-34.6037, -58.3816], 12);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '© OpenStreetMap'
-}).addTo(map);
-
-var markersGroup = L.layerGroup().addTo(map);
-
-// Función para dibujar marcadores
-function actualizarMapa(barrioFiltro) {
-  markersGroup.clearLayers();
-  registros.forEach(reg => {
-    if (barrioFiltro === "todos" || reg.barrio === barrioFiltro) {
-      L.marker([reg.lat, reg.lng]).addTo(markersGroup)
-        .bindPopup(`
-          <b>${reg.marca} ${reg.modelo} (${reg.anio})</b><br>
-          <b>Barrio:</b> ${reg.barrio}<br>
-          <b>Lugar:</b> ${reg.lugar}<br>
-          <b>Fecha y hora:</b> ${reg.fecha} ${reg.hora}<br>
-          <b>Situación:</b> ${reg.situacion}<br>
-          <b>Modalidad:</b> ${reg.modus_operandi}<br>
-          <b>Recuperado:</b> ${reg.recuperado}
-        `);
-    }
-  });
-}
-actualizarMapa("todos");
-
-// Filtro
+// El mapa se carga desde Google My Maps. El filtro actualiza los gráficos locales.
 document.getElementById("filtroBarrio").addEventListener("change", function() {
-  actualizarMapa(this.value);
   actualizarGraficos(this.value);
 });
 
